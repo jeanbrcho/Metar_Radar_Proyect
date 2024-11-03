@@ -1,0 +1,77 @@
+<app-header></app-header>
+<ion-content>
+
+  <!-- <ion-item class="buscador"> -->
+  <div style="display: flex; align-items: center; flex-direction: column;">
+    <ion-searchbar placeholder="BUSCAR ICAO" (ionChange)="buscar($event)" class="buscador"></ion-searchbar>
+    <ion-label style="padding: 1vh; margin: 1vh; border-radius: 1vh; background-color: #5599ff;">Puede ingresar más de uno separado por " , "</ion-label>
+    <!-- </ion-item> -->
+  </div>
+
+  <ion-list *ngFor="let aeropuerto of aeropuertos?.data">
+
+    <div class="contenedor-clima">
+
+      <!-- boton de favoritos -->
+      <ion-button class="favorite-button-container" fill="clear" (click)="addToFavorites(aeropuerto)"
+        [ngClass]="{'favorite': isFavorite[aeropuerto.icao]}">
+        <ion-icon [name]="isFavorite[aeropuerto.icao] ? 'star' : 'star-outline'"></ion-icon>
+      </ion-button>
+
+      <!-- nombres de aeropuertos -->
+      <div class="aeropuerto">
+        <h1>{{ aeropuerto.station.name }}</h1>
+        <h2>{{ aeropuerto.icao }} - {{ aeropuerto.station.location }}</h2>
+      </div>
+
+      <!-- lista cuando usas el buscador -->
+      <div class="datos">
+        <span>Temperatura: {{ aeropuerto.temperature.celsius }}°</span>
+        <span>Nubes: {{ aeropuerto.clouds[0].text }}</span>
+        <span>Viento: {{ aeropuerto.wind.degrees }}°/{{ aeropuerto.wind.speed_kts }}Kts</span>
+        <span>Visibilidad: {{ aeropuerto.visibility.meters }} Metros</span>
+        <span>Presion: {{ aeropuerto.barometer.hpa }}hPa</span>
+      </div>
+    </div>
+  </ion-list>
+
+  <div class="ubicacion-container">
+    <ion-button class="ubicacion-button" (click)="toggleUbicacion()">
+      <ion-icon name="location-outline" slot="start"></ion-icon>
+      Obtener Ubicación
+    </ion-button>
+
+    <div *ngIf="mostrarUbicacion" class="ubicacion-info">
+      <button class="cerrar-ubicacion" (click)="mostrarUbicacion = false">
+        <ion-icon name="close-circle" slot="end"></ion-icon>
+      </button>
+      <p *ngIf="pais"><strong>País:</strong> {{ pais }}</p>
+      <p *ngIf="provincia"><strong>Provincia:</strong> {{ provincia }}</p>
+
+      <div *ngIf="aeropuertoCercano; else noAeropuertoCercano">
+        <div class="contenedor-clima">
+          <h1>Aeropuerto más cercano:</h1>
+          <p>Nombre: {{ aeropuertoCercano.station ? aeropuertoCercano.station.name : 'Desconocido' }}</p>
+          <p>ICAO: {{ aeropuertoCercano.icao }}</p>
+          <p>Ciudad: {{ aeropuertoCercano.city }}</p>
+          <p>País: {{ aeropuertoCercano.country.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="mostrarUbicacion && (!pais && !provincia)" class="ubicacion-error">
+      <p>Ubicación no disponible.</p>
+    </div>
+
+    <ng-template #noAeropuertoCercano>
+      <div class="no-aeropuerto">
+        <h2>No se encontró un aeropuerto cercano</h2>
+      </div>
+    </ng-template>
+  </div>
+
+</ion-content>
+<app-footer></app-footer>
+
+
+<!-- "navegación segura" (?.) para acceder a las propiedades de aeropuertoCercano. Esto evitará que Angular intente leer propiedades de un objeto undefined: -->

@@ -1,0 +1,22 @@
+.rights-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(173, 216, 230, 0.8); /* Azul cielo con transparencia */
+  font-size: 14px;
+  color: #1a3a6c;           /* Azul oscuro que combine con el tema */
+  text-align: center;
+  margin: 20px 10px;
+  padding: 10px;
+  line-height: 1.5;
+  font-family: 'Helvetica', sans-serif;
+  border-radius: 8px;       /* Bordes redondeados para un toque suave */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.rights-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.3)); /* Sombra para resaltar */
+}

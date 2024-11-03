@@ -1,0 +1,217 @@
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para el encabezado h2 elegante */
+.login-container h2 {
+  font-size: 28px;
+  /* Tamaño moderado */
+  font-weight: 600;
+  /* Peso de fuente más ligero para un aspecto elegante */
+  color: #ffffff;
+  /* Color oscuro para un buen contraste */
+  text-align: center;
+  /* Alineación centrada */
+  padding: 8px;
+  /* Espacio alrededor del texto */
+  margin: 0;
+}
+
+//cuadrado del mail y contraseña
+label {
+  font-size: 16px;
+  /* Tamaño de fuente más grande */
+  font-weight: 500;
+  /* Peso de fuente normal para mejor legibilidad */
+  color: #ffffff;
+  /* Color oscuro para contraste */
+  margin: 15px 0 5px;
+  /* Espaciado uniforme */
+  display: block;
+  /* Asegura que cada etiqueta ocupe toda la línea */
+  transition: color 0.3s;
+  /* Transición suave para cambios de color */
+}
+
+/* Efecto al enfocar el input asociado */
+input:focus+label {
+  color: #4285F4;
+  /* Cambia el color al enfocar el input */
+  font-weight: 700;
+  /* Pone la etiqueta en negrita cuando el input está enfocado */
+}
+
+
+input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  background-color: #5f6368;
+  color: #ffffff;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+a {
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+//usuario logueado
+.success {
+  color: green;
+  background-color: rgba(0, 255, 0, 0.1);
+  border: 1px solid green;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: relative;
+  transition: opacity 0.5s;
+  text-align: center;
+}
+
+.error {
+  color: red;
+  background-color: rgba(255, 36, 61, 0.1);
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 10px;
+  position: relative;
+  transition: opacity 0.5s;
+  text-align: center;
+}
+
+
+//imagen de fondo
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* Altura completa de la ventana */
+  background-image: url('https://www.shutterstock.com/image-vector/world-weather-meteorological-forecast-aviation-600nw-1688005699.jpg');
+  /* Cambia esto por el enlace a tu imagen */
+  background-size: cover;
+  /* Ajusta la imagen para cubrir toda el área */
+  background-position: right;
+  /* Centra la imagen */
+  color: white;
+  /* Color del texto (opcional, cambia según tu imagen) */
+}
+
+
+//Estilizar el Contenedor del Formulario (Opcional)
+.login-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo oscuro semi-transparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+//logo arriba del inicio de seccion 
+/* Estilos para el logo del proyecto */
+.logo {
+  animation: fadeIn 1s ease-in-out;
+  margin-bottom: 5px;
+  /* Espacio debajo del logo */
+  position: relative;
+  /* Posicionamiento relativo para ajustar el logo */
+  width: 30vh;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+//boton de login
+.login-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s, transform 0.3s;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 123, 255, 0.4);
+  /* sombra con color de resplandor */
+}
+
+//boton de logear con google
+.google-login-button {
+  --background: #ffffff;
+  --color: #5f6368;
+  font-weight: 500;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.google-login-button:hover {
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+
+.google-login-button:active {
+  transform: scale(0.98);
+  /* Efecto de clic */
+}
+
+.google-button-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+}

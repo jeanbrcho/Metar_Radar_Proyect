@@ -1,0 +1,35 @@
+ion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    //background-image: url('https://www.shutterstock.com/image-vector/world-weather-meteorological-forecast-aviation-600nw-1688005699.jpg'); /* Cambia esto por el enlace a tu imagen */
+    // background-image: url('https://www.psicologiadelcolor.es/wp-content/uploads/2017/03/cielo_azul.jpg');
+    // background-size: cover; /* Ajusta la imagen para cubrir toda el área */
+    // background-position: right; /* Centra la imagen */
+    background-color: #d5e5ff;
+    background-image: url('https://static.vecteezy.com/system/resources/thumbnails/009/662/653/small_2x/cloud-isolated-on-black-background-png.png');
+    background-position: left;
+}
+
+ion-label  {
+    height: 400px;
+    //background: linear-gradient(135deg, #5599ff 10%, #aaccff 100%);
+    background-color: #5599ff;
+    border-radius: 25px;
+    opacity: 80;
+    color: #fff;
+    border-radius: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);//sombra
+    cursor: pointer;//transforma el cursor cuando se pasa por encima
+    padding: 10px;
+    margin: 1vh;
+}
+
+ion-label:hover{
+    transform: scale(1.1); //hace que se transforme en blanco 
+    background: #aaccff;
+    color: #222831;// cuando se tranforma la letra se vuelve negra
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    transition: all 0.3s ease; //hace que aparezca y desaparezca
+}
+

@@ -1,0 +1,7 @@
+{
+  "name": "Loguin",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

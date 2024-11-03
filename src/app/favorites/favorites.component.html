@@ -1,0 +1,35 @@
+<app-header></app-header>
+
+<ion-buttons slot="start">
+  <ion-button (click)="goHome()">
+    <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+  </ion-button>
+</ion-buttons>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let favorito of favoritos">
+      <ion-item>
+        <ion-label>
+          {{ favorito.name }} ({{ favorito.icao }})
+        </ion-label>
+        <ion-icon 
+          [name]="esFavorito(favorito.icao) ? 'star' : 'star-outline'" 
+          slot="end" 
+          color="primary">
+        </ion-icon>
+      </ion-item>
+      <!-- botón eliminar -->
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="eliminarFavorito(favorito)">Eliminar</ion-item-option>
+      </ion-item-options>
+
+      <!-- Botón deslizante hacia la derecha -->
+      <ion-item-options side="start">
+        <ion-item-option color="success" (click)="verFavorito(favorito.icao)">
+          Ver
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
